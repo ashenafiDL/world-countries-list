@@ -6,31 +6,31 @@ import {
   Select,
   TextField,
 } from "@mui/material";
-import { useState } from "react";
 
-export const Banner = () => {
-  const [filter, setFilter] = useState("first");
-
-  const handleChange = (e) => {
-    setFilter(e.target.value);
-  };
-
+export const Banner = ({ filter, handleSearchChange, handleFilterChange }) => {
   return (
-    <Container className="mx-auto flex h-3/5 flex-col items-center justify-center">
+    <Container
+      className="mx-auto flex h-3/5 flex-col items-center 
+      justify-center"
+    >
       <h1>World Countries List</h1>
       <FormControl>
         <Box>
           <Select
-            variant="filled"
+            className="w-fit"
             id="filter"
             value={filter}
-            onChange={handleChange}
-            min-h-screen
+            onChange={handleFilterChange}
           >
-            <MenuItem value="first">By first letters</MenuItem>
-            <MenuItem value="any">By any letters</MenuItem>
+            <MenuItem value="starting">Starting word</MenuItem>
+            <MenuItem value="any">Any word</MenuItem>
           </Select>
-          <TextField className="w-96" variant="outlined" label="Search" type="search" />
+          <TextField
+            className="w-full sm:w-60 md:w-64 lg:w-72 xl:w-80 2xl:w-96"
+            label="Search"
+            type="search"
+            onChange={handleSearchChange}
+          />
         </Box>
       </FormControl>
     </Container>

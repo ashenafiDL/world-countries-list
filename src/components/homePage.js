@@ -7,6 +7,8 @@ import { Loading } from "./loading";
 
 export const HomePage = () => {
   const [allCountries, setAllCountries] = useState();
+  const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState("starting");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -31,15 +33,35 @@ export const HomePage = () => {
       .finally(() => setLoading(false));
   }, []);
 
+  const handleSearchChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+  };
+
   return (
     <Container className="h-screen">
-      <Banner />
+      <Banner
+        filter={filter}
+        handleSearchChange={handleSearchChange}
+        handleFilterChange={handleFilterChange}
+      />
+
+      {/* if (loading) {}
+          else if (error) {}
+          else {} */}
       {loading ? (
         <Loading />
       ) : error ? (
         <Error />
       ) : (
-        <CountryList allCountries={allCountries} />
+        <CountryList
+          allCountries={allCountries}
+          query={query}
+          filter={filter}
+        />
       )}
     </Container>
   );
