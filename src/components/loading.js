@@ -1,3 +1,11 @@
+import { CircularProgress, Container } from "@mui/material";
+
 export const Loading = () => {
-  return <div className="flex items-center justify-center">Loading...</div>;
+  // FIXME - better loading message
+  return (
+    <Container className="flex flex-col items-center justify-center">
+      <CircularProgress />
+      <p className="py-4">Loading...</p>
+    </Container>
+  );
 };

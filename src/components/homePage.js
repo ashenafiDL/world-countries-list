@@ -2,7 +2,7 @@ import { Container } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Banner } from "./banner";
 import { CountryList } from "./countryList";
-import { Error } from "./error";
+import { FetchError } from "./fetchError";
 import { Loading } from "./loading";
 
 export const HomePage = () => {
@@ -55,7 +55,7 @@ export const HomePage = () => {
       {loading ? (
         <Loading />
       ) : error ? (
-        <Error />
+        <FetchError />
       ) : (
         <CountryList
           allCountries={allCountries}

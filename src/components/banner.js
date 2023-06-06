@@ -9,15 +9,12 @@ import {
 
 export const Banner = ({ filter, handleSearchChange, handleFilterChange }) => {
   return (
-    <Container
-      className="mx-auto flex h-3/5 flex-col items-center 
-      justify-center"
-    >
+    <Container className="flex h-3/5 flex-col items-center justify-center">
       <h1>World Countries List</h1>
       <FormControl>
         <Box>
           <Select
-            className="w-fit"
+            autowidth
             id="filter"
             value={filter}
             onChange={handleFilterChange}

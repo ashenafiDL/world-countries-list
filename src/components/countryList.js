@@ -1,5 +1,6 @@
 import { Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
+import { Link } from "react-router-dom";
 import { CountryCard } from "./countryCard";
 
 export const CountryList = ({ allCountries, query, filter }) => {
@@ -20,14 +21,20 @@ export const CountryList = ({ allCountries, query, filter }) => {
 
   return (
     <Container className="py-4">
-      <p>{filteredCountries.length} Results</p>
+      <div className="flex w-full justify-center rounded-lg">
+        <p>{filteredCountries.length} Results</p>
+      </div>
       <Grid
         className="item-center mx-auto flex flex-wrap justify-center"
         container
         spacing={2}
       >
         {filteredCountries.map((country) => {
-          return <CountryCard name={country.name.common} />;
+          return (
+            <Link to={`countries/${country.name.common}`}>
+              <CountryCard country={country} />
+            </Link>
+          );
         })}
       </Grid>
     </Container>
