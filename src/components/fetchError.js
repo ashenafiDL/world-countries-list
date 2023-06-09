@@ -1,4 +1,13 @@
+import { ErrorOutline } from "@mui/icons-material";
+import { Box, Typography } from "@mui/material";
+
 export const FetchError = () => {
-  // FIXME - better error message
-  return <div className="flex items-center justify-center">Error!</div>;
+  return (
+    <Box className="flex flex-col items-center justify-center">
+      <ErrorOutline fontSize="large" />
+      <Typography className="py-4" variant="button">
+        An error ocurred while fetching data.
+      </Typography>
+    </Box>
+  );
 };

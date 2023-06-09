@@ -1,11 +1,12 @@
-import { CircularProgress, Container } from "@mui/material";
+import { CircularProgress, Container, Typography } from "@mui/material";
 
 export const Loading = () => {
-  // FIXME - better loading message
   return (
     <Container className="flex flex-col items-center justify-center">
       <CircularProgress />
-      <p className="py-4">Loading...</p>
+      <Typography variant="button" className="py-4">
+        Loading...
+      </Typography>
     </Container>
   );
 };
