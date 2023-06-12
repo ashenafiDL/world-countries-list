@@ -4,6 +4,7 @@ import { Banner } from "./banner";
 import { CountryList } from "./countryList";
 import { FetchError } from "./fetchError";
 import { Loading } from "./loading";
+import { Footer } from "./footer";
 
 export const HomePage = () => {
   const [allCountries, setAllCountries] = useState();
@@ -21,6 +22,7 @@ export const HomePage = () => {
         throw response;
       })
       .then((data) => {
+        // TODO - fix sort error on phone
         data.sort((a, b) => {
           return a.name.common > b.name.common;
         });
@@ -63,6 +65,8 @@ export const HomePage = () => {
           filter={filter}
         />
       )}
+
+      <Footer />
     </Container>
   );
 };

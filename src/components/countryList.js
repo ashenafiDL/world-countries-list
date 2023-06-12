@@ -1,6 +1,5 @@
 import { Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import { Link } from "react-router-dom";
 import { CountryCard } from "./countryCard";
 
 export const CountryList = ({ allCountries, query, filter }) => {
@@ -30,11 +29,7 @@ export const CountryList = ({ allCountries, query, filter }) => {
         spacing={2}
       >
         {filteredCountries.map((country) => {
-          return (
-            <Link to={`countries/${country.name.common}`}>
-              <CountryCard country={country} />
-            </Link>
-          );
+          return <CountryCard country={country} />;
         })}
       </Grid>
     </Container>

@@ -1,7 +1,6 @@
 import { Container } from "@mui/material";
 
 export const Footer = () => {
-  // TODO - finish the footer
   return (
     <footer className="border-t-2 dark:border-t-gray-200">
       <Container className="mb-8 mt-12 flex flex-row justify-center gap-4">

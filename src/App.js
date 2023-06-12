@@ -17,9 +17,8 @@ export default function App() {
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={darkTheme}>
-        <CssBaseline>
-          <HomePage />
-        </CssBaseline>
+        <CssBaseline />
+        <HomePage />
       </ThemeProvider>
     </StyledEngineProvider>
   );

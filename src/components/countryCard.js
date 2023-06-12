@@ -1,24 +1,34 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import { useState } from "react";
+import CountryDialog from "./countryDialog";
 
 export const CountryCard = ({ country }) => {
-  // TODO - handle click event of cards
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     // TODO - add animation elements change during search
     <Grid2>
       <Card
-        className="flex cursor-pointer items-center justify-center rounded-xl"
+        className="cursor-pointer rounded-xl"
         variant="outlined"
+        onClick={handleClick}
       >
-        {/* FIXME - fix flag size */}
-        {/* <CardMedia component="img" image={country.flags.png} /> */}
         <CardContent>
           <Typography className="text-center text-sm md:text-lg">
             {country.name.common}
           </Typography>
         </CardContent>
       </Card>
+      <CountryDialog country={country} open={open} handleClose={handleClose} />
     </Grid2>
   );
 };
